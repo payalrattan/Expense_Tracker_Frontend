@@ -2,10 +2,12 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const router = useRouter();
 
   const handleLogin = async () => {
     try {
@@ -13,15 +15,16 @@ export const LoginForm = () => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
+        credentials: "include",
       });
 
       const data = await res.json();
 
       if (res.ok) {    // or we can use -->    (data.message === "User logged in successfully!")
         alert("User logged in successfully!");
+        localStorage.setItem("id", data.id);
+        router.push("/dashboard");
 
-        setEmail("");
-        setPassword("");
       } else {
         alert(data.message || "Login failed");
       }
@@ -45,7 +48,7 @@ export const LoginForm = () => {
 
 
       <button onClick={handleLogin}>Submit</button>
-      <Link href={"http://localhost:3001/register"}>Open account</Link>
+      <Link href={"/register"}>Open account</Link>
     </div>
   );
 };

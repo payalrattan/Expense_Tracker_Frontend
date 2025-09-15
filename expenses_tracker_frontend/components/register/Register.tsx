@@ -58,7 +58,7 @@ export const RegisterForm = () => {
       />
 
       <button onClick={handleRegister}>Submit</button>
-      <Link href={"http://localhost:3001/login"}>Go to Login</Link>
+      <Link href={"/login"}>Go to Login</Link>
     </div>
   );
 };
