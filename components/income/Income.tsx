@@ -87,8 +87,6 @@ export const Income = () => {
   const validateAmount = (amount: number) => {
     if (isNaN(amount) || amount <= 0) return "Amount must be greater than 0";
     if (amount > 1000000) return "Amount cannot exceed 1,000,000";
-    // if (!/^\d+(\.\d{1,2})?$/.test(amount.toString()))
-    //   return "Amount can only have up to 2 decimal places";
     return null;
   };
 
