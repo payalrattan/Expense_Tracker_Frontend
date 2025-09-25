@@ -19,7 +19,7 @@ export const RegisterForm = () => {
 
       const data = await res.json();
 
-      if (res.ok) {    // or we can use -->    (data.message === "User logged in successfully!")
+      if (res.ok) {   
         alert("User registered successfully!");
 
         setUsername("");
@@ -58,7 +58,7 @@ export const RegisterForm = () => {
       />
 
       <button onClick={handleRegister}>Submit</button>
-      <Link href={"http://localhost:3001/login"}>Go to Login</Link>
+      <Link href={"/login"}>Go to Login</Link>
     </div>
   );
 };
