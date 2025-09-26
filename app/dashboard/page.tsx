@@ -12,7 +12,7 @@ export default function Dashboard() {
   useEffect(() => {
     const checkLogin = async () => {
       try {
-        const res = await fetch("http://localhost:5002/api/verify", {
+        const res = await fetch("http://localhost:5002/api/users/verify", {
           credentials: "include",
         });
 
